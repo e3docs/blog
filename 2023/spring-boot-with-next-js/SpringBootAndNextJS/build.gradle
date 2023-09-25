@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id 'eclipse'
+	id 'application'
+}
+
+group = 'com.e3docs'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+application {
+    mainClass = 'com.e3docs.SpringBootAndNextJsApplication'
+    applicationDefaultJvmArgs = ['-Dfile.encoding=UTF-8']
+    bootDistZip.enabled = false
+    bootDistTar.enabled = false
+    distTar.enabled = false
+    bootJar.enabled = false
+    executableDir = ""
+}
